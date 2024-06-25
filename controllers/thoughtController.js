@@ -14,7 +14,7 @@ module.exports = {
   // Get a single user
   async getSingleThought(req, res) {
     try {
-      const thought = await Thought.findOne({ _id: req.params.thoughtId }).populate({ path: 'thoughts', select: '-__v' });
+      const thought = await Thought.findOne({ _id: req.params.thoughtId });
 
       if (!thought) {
         return res.status(404).json({ message: 'No thoughts found with that ID' })
